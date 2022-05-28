@@ -16,4 +16,13 @@ public class BookRepository {
         books.add(new Book("34544", "The Book Thief", "Historic Fiction", null, "Markus Zusak"));
         books.add(new Book("11123", "Fahrenheit 451", "Dystopian Fiction", null, "Ray Bradbury"));
     }
+
+    public Book findByIsbn(String isbn) {
+        for (Book book: books) {
+            if (book.getIsbn().equals(isbn)) {
+                return book;
+            }
+        }
+        return null;
+    }
 }

@@ -2,6 +2,7 @@ package libraryApp;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("libraryApp.Main method");
+        LibraryApp app = new LibraryApp();
+        app.searchByIsbn("40024");
     }
 }
