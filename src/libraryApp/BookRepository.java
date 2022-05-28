@@ -1,6 +1,7 @@
 package libraryApp;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class BookRepository {
     ArrayList<Book> books = new ArrayList<>();
@@ -24,5 +25,15 @@ public class BookRepository {
             }
         }
         return null;
+    }
+
+    public ArrayList<Book> findByTitle(String keyword) {
+        ArrayList<Book> bookMatched = new ArrayList<>();
+        for (Book book: books) {
+            if (book.getTitle().toLowerCase().contains(keyword.toLowerCase())) {
+                bookMatched.add(book);
+            }
+        }
+        return bookMatched;
     }
 }

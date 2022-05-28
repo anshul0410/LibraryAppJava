@@ -2,14 +2,14 @@ package libraryApp;
 
 public class Book {
     private String isbn;
-    private String name;
+    private String title;
     private String genre;
     private String description;
     private String author;
 
-    public Book(String isbn, String name, String genre, String description, String author) {
+    public Book(String isbn, String title, String genre, String description, String author) {
         this.isbn = isbn;
-        this.name = name;
+        this.title = title;
         this.genre = genre;
         this.description = description;
         this.author = author;
@@ -19,8 +19,8 @@ public class Book {
         return isbn;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
     public String getGenre() {
