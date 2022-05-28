@@ -27,6 +27,39 @@ public class LibraryApp {
             System.out.println("\tTitle: " + book.getTitle() + "\n\tGenre: " + book.getGenre() + "\n\tAuthor: " + book.getAuthor());
             System.out.println("______________");
         }
+    }
 
+    public void bookCheckOut(String isbn) {
+        Book book = bookRepo.findByIsbn(isbn);
+        if (book != null) {
+            if (book.checkOut()) {
+                System.out.println("Book checked out successfully: ");
+                System.out.println("\tISBN: " + book.getIsbn() + "\n\tTitle: " + book.getTitle() + "\n\tAuthor: " + book.getAuthor());
+            } else {
+                System.out.println("Checkout Failed");
+                System.out.println("\tISBN: " + book.getIsbn() + "\n\tTitle: " + book.getTitle() + "\n\tAuthor: " + book.getAuthor());
+                System.out.println("Reason: More books checked out than recorded quantity");
+            }
+        } else {
+            System.out.println("\nFailed to checkout book");
+            System.out.println("Reason: There is no book with that ISBN\n");
+        }
+    }
+
+    public void bookCheckIn(String isbn) {
+        Book book = bookRepo.findByIsbn(isbn);
+        if (book != null) {
+            if (book.checkIn()) {
+                System.out.println("Book checked in successfully: ");
+                System.out.println("\tISBN: " + book.getIsbn() + "\n\tTitle: " + book.getTitle() + "\n\tAuthor: " + book.getAuthor());
+            } else {
+                System.out.println("Checkin Failed");
+                System.out.println("\tISBN: " + book.getIsbn() + "\n\tTitle: " + book.getTitle() + "\n\tAuthor: " + book.getAuthor());
+                System.out.println("Reason: More books checked in than recorded quantity");
+            }
+        } else {
+            System.out.println("\nFailed to checkin book");
+            System.out.println("Reason: There is no book with that ISBN\n");
+        }
     }
 }
